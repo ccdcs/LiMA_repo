@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="LiMA is an asynchronous dual-system generative framework for long-horizon and reactive bimanual dexterous manipulation.">
+  <meta name="keywords" content="robotics, dexterous manipulation, vision-language-action, world-action model, generative policy">
+  <meta name="robots" content="index, follow">
+
+  <title>LiMA: Bridging Long-term Imagination to Real-time Dexterous Manipulation via Asynchronous Diffusion</title>
+
+  <link rel="icon" type="image/x-icon" href="static/images/favicon.ico">
+  <link rel="stylesheet" href="static/css/bulma.min.css">
+  <link rel="stylesheet" href="static/css/fontawesome.all.min.css">
+  <link rel="stylesheet" href="static/css/index.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@700&amp;family=Inter:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet">
+
+  <script defer src="static/js/fontawesome.all.min.js"></script>
+  <script defer src="static/js/index.js"></script>
+</head>
+<body>
+  <button class="scroll-to-top" type="button" title="Scroll to top" aria-label="Scroll to top" data-scroll-top>
+    <i class="fas fa-chevron-up" aria-hidden="true"></i>
+  </button>
+
+  <main id="main-content">
+    <section class="hero project-header">
+      <div class="hero-body">
+        <div class="container is-max-desktop has-text-centered">
+          <h1 class="title is-1 publication-title">
+            <span class="title-line"><span class="title-brand">LiMA</span>: Bridging Long-term Imagination to Real-time</span>
+            <span class="title-line">Dexterous Manipulation via Asynchronous Diffusion</span>
+          </h1>
+
+          <div class="publication-authors author-list" aria-label="Authors">
+            <div class="author-line">
+              <span class="author-name">Ning Chen<sup>1,2,*</sup></span>,
+              <span class="author-name">Yankai Fu<sup>1,2,*</sup></span>,
+              <span class="author-name">Junkai Zhao<sup>2,&dagger;</sup></span>,
+              <span class="author-name">Qianpu Sun<sup>1</sup></span>,
+            </div>
+            <div class="author-line">
+              <span class="author-name">Guocai Yao<sup>2</sup></span>,
+              <span class="author-name">Pengwei Wang<sup>2</sup></span>,
+              <span class="author-name">Zhongyuan Wang<sup>2</sup></span>,
+              <span class="author-name">Shanghang Zhang<sup>1,2,&#9993;</sup></span>
+            </div>
+          </div>
+
+          <div class="publication-affiliations">
+            <p><sup>1</sup> State Key Laboratory of Multimedia Information Processing, School of Computer Science, Peking University</p>
+            <p><sup>2</sup> Beijing Academy of Artificial Intelligence</p>
+            <p class="author-notes"><sup>*</sup> Equal contribution &nbsp;&middot;&nbsp; <sup>&dagger;</sup> Project leader &nbsp;&middot;&nbsp; <sup>&#9993;</sup> Corresponding author</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="hero teaser" aria-label="LiMA overview video">
+      <div class="container is-max-desktop">
+        <div class="hero-body">
+          <video class="project-overview-video" width="1280" height="720" poster="static/images/teaser.png" autoplay controls muted loop playsinline preload="metadata">
+            <source src="static/videos/lima-overview.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+        </div>
+      </div>
+    </section>
+
+    <section class="section hero is-light" id="abstract">
+      <div class="container is-max-desktop">
+        <h2 class="title is-2 section-title has-text-centered">Abstract</h2>
+        <figure class="paper-figure paper-figure-wide">
+          <a href="static/pdfs/Teaserfinal6.pdf" target="_blank" rel="noopener" aria-label="Open the teaser figure as a PDF">
+            <img src="static/images/teaser.png" alt="Comparison of inverse dynamics models, world-action models, and LiMA" loading="eager">
+          </a>
+        </figure>
+        <div class="content abstract-copy has-text-justified">
+          <p>
+            Dexterous manipulation demands long-term foresight and rapid reactive control. Vision-Language-Action (VLA) models, while proficient in high-level reasoning, often lack a fine-grained understanding of physical dynamics and spatial perception. Conversely, World-Action Models (WAMs) typically suffer from high inference latency due to iterative generation. These deficiencies result in a critical temporal misalignment where the model's intent fails to adapt to rapid physical contact changes. To overcome this fundamental bottleneck, we propose <strong>LiMA</strong>, an asynchronous dual-system generative framework that systematically decouples intent planning from reactive execution. LiMA organizes computation into a multi-scale hierarchy: a slow system handles sparse long-horizon spatiotemporal intent generation, while a fast system focuses on dense high-frequency motion refinement. To align sparse intent predictions with dense action trajectories, we introduce a Latent Schr&ouml;dinger Bridge Coupling mechanism that formulates refinement as an entropy-regularized probabilistic transport process. LiMA reduces inference latency by <strong>45.8%</strong> compared with Cosmos-Policy via asynchronous decoupling. Evaluated across six bimanual dexterous manipulation tasks spanning multiple horizons, LiMA achieves an overall success rate of <strong>70.8%</strong> and an average subtask success rate of <strong>78.5%</strong>, while maintaining performance in unseen scenarios.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="method">
+      <div class="container is-max-desktop">
+        <h2 class="title is-2 section-title has-text-centered">Method</h2>
+        <figure class="paper-figure paper-figure-wide">
+          <a href="static/pdfs/final_ppl.pdf" target="_blank" rel="noopener" aria-label="Open the method figure as a PDF">
+            <img src="static/images/method.png" alt="LiMA architecture with Future Dreamer and Motion Refiner" loading="lazy">
+          </a>
+        </figure>
+        <div class="content method-copy">
+          <!-- Method description intentionally left blank for later revision. -->
+        </div>
+      </div>
+    </section>
+
+    <section class="section hero is-light" id="experiments">
+      <div class="container is-max-desktop">
+        <h2 class="title is-2 section-title has-text-centered">Experiments</h2>
+
+        <div class="columns is-variable is-5 experiment-figures">
+          <div class="column is-half">
+            <figure class="paper-figure compact-figure">
+              <a href="static/pdfs/attn.pdf" target="_blank" rel="noopener" aria-label="Open the attention visualization as a PDF">
+                <img src="static/images/attention.png" alt="Attention visualization for the Dreamer, Refiner, and Cosmos-Policy" loading="lazy">
+              </a>
+              <figcaption>Attention visualization.</figcaption>
+            </figure>
+          </div>
+          <div class="column is-half">
+            <figure class="paper-figure compact-figure">
+              <a href="static/pdfs/TaskAll.pdf" target="_blank" rel="noopener" aria-label="Open the real-world task overview as a PDF">
+                <img src="static/images/tasks.png" alt="Six real-world bimanual dexterous manipulation tasks" loading="lazy">
+              </a>
+              <figcaption>Real-world task suite.</figcaption>
+            </figure>
+          </div>
+        </div>
+
+        <h3 class="title is-3 subsection-title has-text-centered">Real-World Manipulation</h3>
+        <div class="media-carousel" data-carousel aria-label="Real-world manipulation videos" tabindex="0">
+          <div class="media-slides">
+            <article class="media-slide is-active" data-slide aria-hidden="false">
+              <video width="1280" height="720" controls muted loop playsinline preload="metadata"><source src="static/videos/stack-cup.mp4" type="video/mp4"></video>
+              <h4>Stack Cup</h4>
+            </article>
+            <article class="media-slide" data-slide aria-hidden="true">
+              <video width="1280" height="720" controls muted loop playsinline preload="metadata"><source src="static/videos/roll-tshirt.mp4" type="video/mp4"></video>
+              <h4>Roll T-shirt</h4>
+            </article>
+            <article class="media-slide" data-slide aria-hidden="true">
+              <video width="1280" height="720" controls muted loop playsinline preload="metadata"><source src="static/videos/cook-rice.mp4" type="video/mp4"></video>
+              <h4>Cook Rice</h4>
+            </article>
+            <article class="media-slide" data-slide aria-hidden="true">
+              <video width="1280" height="720" controls muted loop playsinline preload="metadata"><source src="static/videos/make-sandwich.mp4" type="video/mp4"></video>
+              <h4>Make Sandwich</h4>
+            </article>
+            <article class="media-slide" data-slide aria-hidden="true">
+              <video width="1280" height="720" controls muted loop playsinline preload="metadata"><source src="static/videos/make-coffee.mp4" type="video/mp4"></video>
+              <h4>Make Coffee</h4>
+            </article>
+            <article class="media-slide" data-slide aria-hidden="true">
+              <video width="1280" height="720" controls muted loop playsinline preload="metadata"><source src="static/videos/assemble-package.mp4" type="video/mp4"></video>
+              <h4>Assemble Package</h4>
+            </article>
+          </div>
+          <button class="carousel-control carousel-previous" type="button" data-carousel-previous aria-label="Previous manipulation video"><i class="fas fa-chevron-left" aria-hidden="true"></i></button>
+          <button class="carousel-control carousel-next" type="button" data-carousel-next aria-label="Next manipulation video"><i class="fas fa-chevron-right" aria-hidden="true"></i></button>
+          <p class="carousel-status" aria-live="polite"><span data-carousel-current>1</span> / <span data-carousel-total>6</span></p>
+        </div>
+
+        <div class="results-table-block">
+          <div class="table-scroll" role="region" aria-label="Main experiment results" tabindex="0">
+            <table class="table results-table is-striped is-hoverable">
+              <caption><strong>Comparison of LiMA and baselines on real-world tasks.</strong> Each experiment is evaluated with 20 trials.</caption>
+              <thead>
+                <tr>
+                  <th rowspan="2" scope="col">Method</th>
+                  <th colspan="2" scope="colgroup">Stack Cup</th>
+                  <th colspan="2" scope="colgroup">Roll T-shirt</th>
+                  <th colspan="2" scope="colgroup">Cook Rice</th>
+                  <th colspan="2" scope="colgroup">Make Sandwich</th>
+                  <th colspan="2" scope="colgroup">Make Coffee</th>
+                  <th colspan="2" scope="colgroup">Assemble Package</th>
+                  <th rowspan="2" scope="col">Latency</th>
+                </tr>
+                <tr>
+                  <th scope="col">SR</th><th scope="col">PSR</th>
+                  <th scope="col">SR</th><th scope="col">PSR</th>
+                  <th scope="col">SR</th><th scope="col">PSR</th>
+                  <th scope="col">SR</th><th scope="col">PSR</th>
+                  <th scope="col">SR</th><th scope="col">PSR</th>
+                  <th scope="col">SR</th><th scope="col">PSR</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr><th scope="row">GR00T N1.6</th><td>85.0</td><td>87.5</td><td>70.0</td><td>71.7</td><td>70.0</td><td>72.0</td><td>65.0</td><td>72.5</td><td>55.0</td><td>71.7</td><td>50.0</td><td>61.7</td><td>270 ms</td></tr>
+                <tr><th scope="row">VPP</th><td>80.0</td><td>80.0</td><td>55.0</td><td>56.7</td><td>55.0</td><td>60.0</td><td>50.0</td><td>61.3</td><td>50.0</td><td>56.7</td><td>40.0</td><td>48.3</td><td>225 ms</td></tr>
+                <tr><th scope="row">InternVLA-A1</th><td>90.0</td><td>90.0</td><td>75.0</td><td>88.3</td><td>70.0</td><td>78.0</td><td>65.0</td><td>77.5</td><td>50.0</td><td>66.7</td><td>50.0</td><td>58.3</td><td>360 ms</td></tr>
+                <tr><th scope="row">Cosmos-Policy</th><td>80.0</td><td>82.5</td><td>60.0</td><td>70.0</td><td>60.0</td><td>67.0</td><td>60.0</td><td>71.3</td><td>55.0</td><td>63.3</td><td>45.0</td><td>51.7</td><td>600 ms</td></tr>
+                <tr class="ours-row"><th scope="row">LiMA (Ours)</th><td><strong>90.0</strong></td><td><strong>95.0</strong></td><td><strong>75.0</strong></td><td>83.3</td><td><strong>80.0</strong></td><td><strong>82.0</strong></td><td><strong>70.0</strong></td><td><strong>80.0</strong></td><td><strong>60.0</strong></td><td>70.0</td><td><strong>50.0</strong></td><td><strong>63.3</strong></td><td>325 ms</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p class="table-note">SR and PSR are reported in %. Inference latency is measured on an NVIDIA H100 GPU.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="generalization">
+      <div class="container is-max-desktop">
+        <h2 class="title is-2 section-title has-text-centered">Generalization</h2>
+        <div class="media-carousel" data-carousel aria-label="Generalization videos" tabindex="0">
+          <div class="media-slides">
+            <article class="media-slide is-active" data-slide aria-hidden="false">
+              <video width="1280" height="720" controls muted loop playsinline preload="metadata"><source src="static/videos/generalization-cluttered.mp4" type="video/mp4"></video>
+              <h4>Cluttered Scenes</h4>
+            </article>
+            <article class="media-slide" data-slide aria-hidden="true">
+              <video width="1280" height="720" controls muted loop playsinline preload="metadata"><source src="static/videos/generalization-background.mp4" type="video/mp4"></video>
+              <h4>Unseen Background</h4>
+            </article>
+            <article class="media-slide" data-slide aria-hidden="true">
+              <video width="1280" height="720" controls muted loop playsinline preload="metadata"><source src="static/videos/generalization-lighting.mp4" type="video/mp4"></video>
+              <h4>Unseen Lighting</h4>
+            </article>
+            <article class="media-slide" data-slide aria-hidden="true">
+              <video width="1280" height="720" controls muted loop playsinline preload="metadata"><source src="static/videos/generalization-object.mp4" type="video/mp4"></video>
+              <h4>Unseen Objects</h4>
+            </article>
+          </div>
+          <button class="carousel-control carousel-previous" type="button" data-carousel-previous aria-label="Previous generalization video"><i class="fas fa-chevron-left" aria-hidden="true"></i></button>
+          <button class="carousel-control carousel-next" type="button" data-carousel-next aria-label="Next generalization video"><i class="fas fa-chevron-right" aria-hidden="true"></i></button>
+          <p class="carousel-status" aria-live="polite"><span data-carousel-current>1</span> / <span data-carousel-total>4</span></p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="content has-text-centered">
+        <p>
+          This page was built using the <a href="https://github.com/eliahuhorwitz/Academic-project-page-template" target="_blank" rel="noopener">Academic Project Page Template</a>, adopted from the <a href="https://nerfies.github.io/" target="_blank" rel="noopener">Nerfies</a> project page. The template is licensed under <a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="noopener">CC BY-SA 4.0</a>.
+        </p>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
