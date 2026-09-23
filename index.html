@@ -9,13 +9,15 @@
 
   <title>LiMA: Bridging Long-term Imagination to Real-time Dexterous Manipulation via Asynchronous Diffusion</title>
 
-  <link rel="icon" type="image/x-icon" href="static/images/favicon.ico">
+  <meta name="theme-color" content="#f6fbf3">
+  <link rel="icon" type="image/png" sizes="32x32" href="static/images/lima-mascot-32.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="static/images/lima-mascot-180.png">
   <link rel="stylesheet" href="static/css/bulma.min.css">
   <link rel="stylesheet" href="static/css/fontawesome.all.min.css">
   <link rel="stylesheet" href="static/css/index.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@700&amp;family=Inter:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet">
 
   <script defer src="static/js/fontawesome.all.min.js"></script>
   <script defer src="static/js/index.js"></script>
@@ -28,9 +30,9 @@
   <main id="main-content">
     <section class="hero project-header">
       <div class="hero-body">
-        <div class="container is-max-desktop has-text-centered">
+        <div class="container is-max-desktop has-text-centered" data-scroll-fade>
           <h1 class="title is-1 publication-title">
-            <span class="title-line"><span class="title-brand">LiMA</span>: Bridging Long-term Imagination to Real-time</span>
+            <span class="title-line"><span class="title-brand-lockup"><span class="title-brand"><img class="project-logo" src="static/images/lima-mascot.png" width="80" height="80" alt="" aria-hidden="true"><img class="title-wordmark" src="static/images/lima-wordmark.svg" width="282" height="83" alt="LiMA"></span>:</span> Bridging Long-term Imagination to Real-time</span>
             <span class="title-line">Dexterous Manipulation via Asynchronous Diffusion</span>
           </h1>
 
@@ -54,13 +56,32 @@
             <p><sup>2</sup> Beijing Academy of Artificial Intelligence</p>
             <p class="author-notes"><sup>*</sup> Equal contribution &nbsp;&middot;&nbsp; <sup>&dagger;</sup> Project leader &nbsp;&middot;&nbsp; <sup>&#9993;</sup> Corresponding author</p>
           </div>
+
+          <p class="conference-badge">CoRL 2026</p>
+
+          <nav class="publication-resources" aria-label="Publication resources">
+            <a class="publication-resource" href="static/pdfs/LiMA.pdf" target="_blank" rel="noopener" aria-label="Open the LiMA paper PDF">
+              <i class="fas fa-file-pdf" aria-hidden="true"></i>
+              <span class="resource-label">PDF</span>
+            </a>
+            <span class="publication-resource is-pending" aria-label="arXiv, coming soon">
+              <i class="fas fa-book-open" aria-hidden="true"></i>
+              <span class="resource-label">arXiv</span>
+              <span class="resource-status">Coming soon</span>
+            </span>
+            <span class="publication-resource is-pending" aria-label="Code, coming soon">
+              <i class="fas fa-code" aria-hidden="true"></i>
+              <span class="resource-label">Code</span>
+              <span class="resource-status">Coming soon</span>
+            </span>
+          </nav>
         </div>
       </div>
     </section>
 
     <section class="hero teaser" aria-label="LiMA overview video">
       <div class="container is-max-desktop">
-        <div class="hero-body">
+        <div class="hero-body" data-scroll-fade>
           <video class="project-overview-video" width="1280" height="720" poster="static/images/teaser.png" autoplay controls muted loop playsinline preload="metadata">
             <source src="static/videos/lima-overview.mp4" type="video/mp4">
             Your browser does not support the video tag.
@@ -71,13 +92,13 @@
 
     <section class="section hero is-light" id="abstract">
       <div class="container is-max-desktop">
-        <h2 class="title is-2 section-title has-text-centered">Abstract</h2>
-        <figure class="paper-figure paper-figure-wide">
+        <h2 class="title is-2 section-title has-text-centered" data-scroll-fade>Abstract</h2>
+        <figure class="paper-figure paper-figure-wide" data-scroll-fade>
           <a href="static/pdfs/Teaserfinal6.pdf" target="_blank" rel="noopener" aria-label="Open the teaser figure as a PDF">
             <img src="static/images/teaser.png" alt="Comparison of inverse dynamics models, world-action models, and LiMA" loading="eager">
           </a>
         </figure>
-        <div class="content abstract-copy has-text-justified">
+        <div class="content abstract-copy has-text-justified" data-scroll-fade>
           <p>
             Dexterous manipulation demands long-term foresight and rapid reactive control. Vision-Language-Action (VLA) models, while proficient in high-level reasoning, often lack a fine-grained understanding of physical dynamics and spatial perception. Conversely, World-Action Models (WAMs) typically suffer from high inference latency due to iterative generation. These deficiencies result in a critical temporal misalignment where the model's intent fails to adapt to rapid physical contact changes. To overcome this fundamental bottleneck, we propose <strong>LiMA</strong>, an asynchronous dual-system generative framework that systematically decouples intent planning from reactive execution. LiMA organizes computation into a multi-scale hierarchy: a slow system handles sparse long-horizon spatiotemporal intent generation, while a fast system focuses on dense high-frequency motion refinement. To align sparse intent predictions with dense action trajectories, we introduce a Latent Schr&ouml;dinger Bridge Coupling mechanism that formulates refinement as an entropy-regularized probabilistic transport process. LiMA reduces inference latency by <strong>45.8%</strong> compared with Cosmos-Policy via asynchronous decoupling. Evaluated across six bimanual dexterous manipulation tasks spanning multiple horizons, LiMA achieves an overall success rate of <strong>70.8%</strong> and an average subtask success rate of <strong>78.5%</strong>, while maintaining performance in unseen scenarios.
           </p>
@@ -87,23 +108,36 @@
 
     <section class="section" id="method">
       <div class="container is-max-desktop">
-        <h2 class="title is-2 section-title has-text-centered">Method</h2>
-        <figure class="paper-figure paper-figure-wide">
+        <h2 class="title is-2 section-title has-text-centered" data-scroll-fade>Method</h2>
+        <figure class="paper-figure paper-figure-wide" data-scroll-fade>
           <a href="static/pdfs/final_ppl.pdf" target="_blank" rel="noopener" aria-label="Open the method figure as a PDF">
             <img src="static/images/method.png" alt="LiMA architecture with Future Dreamer and Motion Refiner" loading="lazy">
           </a>
         </figure>
-        <div class="content method-copy">
-          <!-- Method description intentionally left blank for later revision. -->
+        <div class="content method-copy" data-scroll-fade>
+          <ul class="method-highlights" aria-label="Key components of the LiMA method">
+            <li class="method-highlight">
+              <h3>Asynchronous Dual System</h3>
+              <p>The Future Dreamer periodically refreshes long-horizon visual and action intent, while the Motion Refiner updates fine-grained actions from the latest observations.</p>
+            </li>
+            <li class="method-highlight">
+              <h3>Latent Schr&ouml;dinger Bridge</h3>
+              <p>A stochastic bridge uses the Dreamer's structured intent as a prior for action and visual refinement, instead of starting from unconditioned Gaussian noise.</p>
+            </li>
+            <li class="method-highlight">
+              <h3>Spatiotemporal Adaptive Modulation</h3>
+              <p>View-aligned modulation fuses imagined future visuals with live camera features, while the current robot state grounds each local motion correction.</p>
+            </li>
+          </ul>
         </div>
       </div>
     </section>
 
     <section class="section hero is-light" id="experiments">
       <div class="container is-max-desktop">
-        <h2 class="title is-2 section-title has-text-centered">Experiments</h2>
+        <h2 class="title is-2 section-title has-text-centered" data-scroll-fade>Experiments</h2>
 
-        <div class="columns is-variable is-5 experiment-figures">
+        <div class="columns is-variable is-5 experiment-figures" data-scroll-fade>
           <div class="column is-half">
             <figure class="paper-figure compact-figure">
               <a href="static/pdfs/attn.pdf" target="_blank" rel="noopener" aria-label="Open the attention visualization as a PDF">
@@ -122,31 +156,31 @@
           </div>
         </div>
 
-        <h3 class="title is-3 subsection-title has-text-centered">Real-World Manipulation</h3>
-        <div class="media-carousel" data-carousel aria-label="Real-world manipulation videos" tabindex="0">
+        <h3 class="title is-3 subsection-title has-text-centered" data-scroll-fade>Real-World Manipulation</h3>
+        <div class="media-carousel" data-carousel data-scroll-fade aria-label="Real-world manipulation videos" tabindex="0">
           <div class="media-slides">
             <article class="media-slide is-active" data-slide aria-hidden="false">
-              <video width="1280" height="720" controls muted loop playsinline preload="metadata"><source src="static/videos/stack-cup.mp4" type="video/mp4"></video>
+              <video width="1280" height="720" controls muted loop playsinline preload="metadata" poster="static/images/posters/stack-cup.jpg"><source src="static/videos/stack-cup.mp4" type="video/mp4"></video>
               <h4>Stack Cup</h4>
             </article>
             <article class="media-slide" data-slide aria-hidden="true">
-              <video width="1280" height="720" controls muted loop playsinline preload="metadata"><source src="static/videos/roll-tshirt.mp4" type="video/mp4"></video>
+              <video width="1280" height="720" controls muted loop playsinline preload="metadata" poster="static/images/posters/roll-tshirt.jpg"><source src="static/videos/roll-tshirt.mp4" type="video/mp4"></video>
               <h4>Roll T-shirt</h4>
             </article>
             <article class="media-slide" data-slide aria-hidden="true">
-              <video width="1280" height="720" controls muted loop playsinline preload="metadata"><source src="static/videos/cook-rice.mp4" type="video/mp4"></video>
+              <video width="1280" height="720" controls muted loop playsinline preload="metadata" poster="static/images/posters/cook-rice.jpg"><source src="static/videos/cook-rice.mp4" type="video/mp4"></video>
               <h4>Cook Rice</h4>
             </article>
             <article class="media-slide" data-slide aria-hidden="true">
-              <video width="1280" height="720" controls muted loop playsinline preload="metadata"><source src="static/videos/make-sandwich.mp4" type="video/mp4"></video>
+              <video width="1280" height="720" controls muted loop playsinline preload="metadata" poster="static/images/posters/make-sandwich.jpg"><source src="static/videos/make-sandwich.mp4" type="video/mp4"></video>
               <h4>Make Sandwich</h4>
             </article>
             <article class="media-slide" data-slide aria-hidden="true">
-              <video width="1280" height="720" controls muted loop playsinline preload="metadata"><source src="static/videos/make-coffee.mp4" type="video/mp4"></video>
+              <video width="1280" height="720" controls muted loop playsinline preload="metadata" poster="static/images/posters/make-coffee.jpg"><source src="static/videos/make-coffee.mp4" type="video/mp4"></video>
               <h4>Make Coffee</h4>
             </article>
             <article class="media-slide" data-slide aria-hidden="true">
-              <video width="1280" height="720" controls muted loop playsinline preload="metadata"><source src="static/videos/assemble-package.mp4" type="video/mp4"></video>
+              <video width="1280" height="720" controls muted loop playsinline preload="metadata" poster="static/images/posters/assemble-package.jpg"><source src="static/videos/assemble-package.mp4" type="video/mp4"></video>
               <h4>Assemble Package</h4>
             </article>
           </div>
@@ -155,7 +189,7 @@
           <p class="carousel-status" aria-live="polite"><span data-carousel-current>1</span> / <span data-carousel-total>6</span></p>
         </div>
 
-        <div class="results-table-block">
+        <div class="results-table-block" data-scroll-fade>
           <div class="table-scroll" role="region" aria-label="Main experiment results" tabindex="0">
             <table class="table results-table is-striped is-hoverable">
               <caption><strong>Comparison of LiMA and baselines on real-world tasks.</strong> Each experiment is evaluated with 20 trials.</caption>
@@ -195,29 +229,36 @@
 
     <section class="section" id="generalization">
       <div class="container is-max-desktop">
-        <h2 class="title is-2 section-title has-text-centered">Generalization</h2>
-        <div class="media-carousel" data-carousel aria-label="Generalization videos" tabindex="0">
-          <div class="media-slides">
-            <article class="media-slide is-active" data-slide aria-hidden="false">
-              <video width="1280" height="720" controls muted loop playsinline preload="metadata"><source src="static/videos/generalization-cluttered.mp4" type="video/mp4"></video>
-              <h4>Cluttered Scenes</h4>
-            </article>
-            <article class="media-slide" data-slide aria-hidden="true">
-              <video width="1280" height="720" controls muted loop playsinline preload="metadata"><source src="static/videos/generalization-background.mp4" type="video/mp4"></video>
-              <h4>Unseen Background</h4>
-            </article>
-            <article class="media-slide" data-slide aria-hidden="true">
-              <video width="1280" height="720" controls muted loop playsinline preload="metadata"><source src="static/videos/generalization-lighting.mp4" type="video/mp4"></video>
-              <h4>Unseen Lighting</h4>
-            </article>
-            <article class="media-slide" data-slide aria-hidden="true">
-              <video width="1280" height="720" controls muted loop playsinline preload="metadata"><source src="static/videos/generalization-object.mp4" type="video/mp4"></video>
-              <h4>Unseen Objects</h4>
-            </article>
+        <h2 class="title is-2 section-title has-text-centered" data-scroll-fade>Generation</h2>
+        <div class="generation-layout" data-scroll-fade>
+          <div class="generation-video-panel">
+            <div class="media-carousel" data-carousel aria-label="Generation videos" tabindex="0">
+              <div class="media-slides">
+                <article class="media-slide is-active" data-slide aria-hidden="false">
+                  <video width="1280" height="720" controls muted loop playsinline preload="metadata" poster="static/images/posters/generalization-cluttered.jpg"><source src="static/videos/generalization-cluttered.mp4" type="video/mp4"></video>
+                  <h4>Cluttered Scenes</h4>
+                </article>
+                <article class="media-slide" data-slide aria-hidden="true">
+                  <video width="1280" height="720" controls muted loop playsinline preload="metadata" poster="static/images/posters/generalization-background.jpg"><source src="static/videos/generalization-background.mp4" type="video/mp4"></video>
+                  <h4>Unseen Background</h4>
+                </article>
+                <article class="media-slide" data-slide aria-hidden="true">
+                  <video width="1280" height="720" controls muted loop playsinline preload="metadata" poster="static/images/posters/generalization-lighting.jpg"><source src="static/videos/generalization-lighting.mp4" type="video/mp4"></video>
+                  <h4>Unseen Lighting</h4>
+                </article>
+                <article class="media-slide" data-slide aria-hidden="true">
+                  <video width="1280" height="720" controls muted loop playsinline preload="metadata" poster="static/images/posters/generalization-object.jpg"><source src="static/videos/generalization-object.mp4" type="video/mp4"></video>
+                  <h4>Unseen Objects</h4>
+                </article>
+              </div>
+              <button class="carousel-control carousel-previous" type="button" data-carousel-previous aria-label="Previous generation video"><i class="fas fa-chevron-left" aria-hidden="true"></i></button>
+              <button class="carousel-control carousel-next" type="button" data-carousel-next aria-label="Next generation video"><i class="fas fa-chevron-right" aria-hidden="true"></i></button>
+              <p class="carousel-status" aria-live="polite"><span data-carousel-current>1</span> / <span data-carousel-total>4</span></p>
+            </div>
           </div>
-          <button class="carousel-control carousel-previous" type="button" data-carousel-previous aria-label="Previous generalization video"><i class="fas fa-chevron-left" aria-hidden="true"></i></button>
-          <button class="carousel-control carousel-next" type="button" data-carousel-next aria-label="Next generalization video"><i class="fas fa-chevron-right" aria-hidden="true"></i></button>
-          <p class="carousel-status" aria-live="polite"><span data-carousel-current>1</span> / <span data-carousel-total>4</span></p>
+          <figure class="generation-chart">
+            <img src="static/images/gene-chart.png" width="1323" height="1191" alt="Radar chart comparing LiMA, Cosmos-Policy, and GR00T N1.6 on base, unseen object, unseen background, unseen lighting, and cluttered settings" loading="lazy">
+          </figure>
         </div>
       </div>
     </section>

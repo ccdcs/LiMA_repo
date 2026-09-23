@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="149 23 282 83" fill="none">
+  <title>LiMA</title>
+  <g stroke="#225942" stroke-width="16" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M161 35V94H204"/>
+    <path d="M232 62V94"/>
+    <path d="M267 94V36L299 71L331 36V94"/>
+    <path d="M367 94L393 35L419 94M378 72H408"/>
+  </g>
+  <circle cx="232" cy="36" r="9" fill="#9DBE80"/>
+</svg>
