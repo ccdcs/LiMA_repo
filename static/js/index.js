@@ -133,6 +133,26 @@ document.addEventListener('DOMContentLoaded', () => {
     showSlide(0);
   });
 
+  const citationCopyButton = document.querySelector('[data-copy-citation]');
+  const citationCode = document.querySelector('#citation-bibtex');
+  const citationFeedback = document.querySelector('[data-citation-feedback]');
+
+  citationCopyButton?.addEventListener('click', async () => {
+    if (!citationCode) return;
+
+    try {
+      await navigator.clipboard.writeText(citationCode.textContent.trim());
+      citationCopyButton.querySelector('span').textContent = 'Copied';
+      if (citationFeedback) citationFeedback.textContent = 'BibTeX copied to clipboard.';
+      window.setTimeout(() => {
+        citationCopyButton.querySelector('span').textContent = 'Copy';
+        if (citationFeedback) citationFeedback.textContent = '';
+      }, 2500);
+    } catch {
+      if (citationFeedback) citationFeedback.textContent = 'Copy failed. Please select and copy the text manually.';
+    }
+  });
+
   document.addEventListener('visibilitychange', () => {
     if (!document.hidden) return;
     document.querySelectorAll('video').forEach((video) => video.pause());
